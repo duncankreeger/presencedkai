@@ -1,0 +1,24 @@
+{
+  "name": "presence",
+  "version": "0.1.0",
+  "description": "Mentorship with Memory",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "setup-db": "node -e \"import('./memory/setup.js').then(m => { m.setupDatabase(); console.log('Database initialised.'); })\"",
+    "backup": "node -e \"import('./safety/monitor.js').then(m => { const p = m.backupDatabase(); if(p) console.log('Backed up:', p); })\"" 
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@hapi/boom": "^10.0.0",
+    "@whiskeysockets/baileys": "^6.7.16",
+    "better-sqlite3": "^11.7.0",
+    "dotenv": "^16.4.7",
+    "node-cron": "^3.0.3",
+    "qrcode-terminal": "^0.12.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
